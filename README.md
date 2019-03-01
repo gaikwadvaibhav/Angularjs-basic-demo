@@ -6,10 +6,4 @@ Boilerplate for playing around with AngularJS:
 - Includes compiled Twitter Bootstrap CSS file so you don't have to compile it to start playing
 - Includes boilerplate `index.html` file
 
-## How to update the components with Bower
-
-From the command line:
-
-
-
 Have fun!
