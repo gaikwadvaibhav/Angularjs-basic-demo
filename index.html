@@ -1,0 +1,155 @@
+<!doctype html>
+<html ng-app="boilerplate">
+
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Boilerplate</title>
+
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/myCtrl.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+</head>
+
+<body class="container">
+
+    <div style="padding:20px;">
+        <span>
+            <a href="#dashboard"  name="dashboard"> Dashboard </a>
+        </span>
+        <span>
+            <a href="#home"  name="home"> Home </a>
+        </span>
+        <span>
+            <a href="#profile"  name="profile"> Profile </a>
+        </span>
+        <div ng-view></div>
+    </div>
+
+    
+
+    <div ng-controller="FirstController">
+        <button class="w3-btn w3-ripple" ng-click="myFunc()">OK</button>
+        <input type="text" value="myName" ng-model="myName">
+        {{myName}}
+
+        <h1 ng-click="changeName()">{{myName}}</h1>
+
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x.name }}
+            </li>
+        </ul>
+
+        <select>
+            <option ng-repeat="x in names">{{x}}</option>
+        </select>
+    </div>
+    <hr>
+    <div ng-controller="SecondController">
+
+        <div ng-repeat="x in resp">
+            <tr>
+                <td> {{ x.userId }} </td>
+                <td> {{ x.title }} </td>
+            </tr>
+        </div>
+        <select ng-model="record">
+            <option ng-value="{{x.title}}" ng-repeat="x in resp">{{x.title}}</option>
+        </select>
+        {{record}}
+    </div>
+
+    <hr>
+
+    <div w3-test-directive>
+    </div>
+
+    <hr>
+
+    <div ng-controller="TestController">
+        {{template}}
+        <p>
+            <button ng-click="clickMe()">Click Me!</button>
+        </p>
+    </div>
+
+    <hr>
+
+    <div ng-app="" ng-init="mySwitch=true">
+        <p>
+            <button ng-disabled="mySwitch">Click Me!</button>
+        </p>
+        <p>
+            <input type="checkbox" ng-model="mySwitch" />Button
+        </p>
+        <p>
+            {{ mySwitch }}
+        </p>
+    </div>
+
+    <hr>
+
+    <div ng-controller="TestController">
+        <h3 ng-mousemove="count = count + 1">Mouse over me!</h3>
+        <h2>{{ count }}</h2>
+        <h3 ng-mouseenter="count = count - 1">Mouse Enter!</h3>
+        <h2>{{ count }}</h2>
+    </div>
+
+    <hr> <span> Forms </span>
+    <hr>
+
+    <div ng-controller="formCtrl" class="container">
+        <form name="myForm">
+            <div>
+                <div>
+                    First Name : <input type="text" name="firstName" ng-model="user.firstName" placeholder="First Name"
+                        required>
+                    <div ng-if="myForm.firstName.$valid != true">
+                        State is: {{myForm.firstName.$valid}}
+                    </div>
+                </div>
+                <div>
+
+                    Last Name : <input type="text" name="lastName" ng-model="user.lastName" placeholder="Last Name"
+                        required>
+                </div>
+                <div>
+                    Email : <input type="email" name="email" ng-model="user.email" placeholder="Email" required>
+                </div>
+                <div>
+                    <button ng-click="submit()"> Submit </button>
+                    <button ng-click="reset()"> Reset </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <hr> <span> Angular Lowercase </span>
+    <div ng-controller="formCtrl" class="container">
+        <p> {{x1}} </p>
+        <p> {{x2}} </p>
+    </div>
+
+    <div ng-include="'https://tryit.w3schools.com/angular_include.php'"></div>
+
+
+    <hr>
+
+    <p> Animation</p>
+
+
+</body>
+
+</html>
